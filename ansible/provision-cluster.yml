@@ -3,7 +3,7 @@
 # advertise_public_ips : causes the cluster to set a public ip on advertised_kafka_api, allowing access to the cluster from the public internet
 ---
 - name: Provision nodes
-  hosts: redpanda
+  hosts: "{{ redpanda_target_group | default('redpanda') }}"
   vars:
     advertise_public_ips: true
     redpanda_version: latest
