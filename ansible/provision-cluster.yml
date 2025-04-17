@@ -4,6 +4,7 @@
 ---
 - name: Provision nodes
   hosts: "{{ redpanda_target_group | default('redpanda') }}"
+  become: true
   vars:
     advertise_public_ips: true
     redpanda_version: latest
